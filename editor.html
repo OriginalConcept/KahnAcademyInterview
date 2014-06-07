@@ -1,0 +1,115 @@
+<!--By Adam Fisher-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Kahn Academy Coding </title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Do some coding!</title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+    
+    #editor { 
+        margin: 0;
+        position: center;
+        margin: auto;
+        height: 300px;
+        width: 90%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="editor">
+//Created by Adam Fisher for Kahn Academy
+//Type something!
+
+</div>
+
+<p id = "errors"> </p>
+<p id = "fixerrors"> </p>
+
+
+<script src="src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.getSession().on('change', function(e) {              //This runs every time something in the text box changes.
+      checkCode();
+    });
+
+
+    editor.getSession().on("changeAnnotation", function(){      //This runs every time an annotation changes.
+    var annot = editor.getSession().getAnnotations();
+    printErrors(annot);
+});
+    
+</script>
+
+
+<script src="esprima-master/esprima.js" type="text/javascript" charset="utf-8"></script>
+
+<script src = "conditions.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script>
+var divs = [];
+
+function initilize()                                  //on inititilization
+{
+   
+  var casesInit = validateCases(editor.getValue());   //get error cases
+
+  for (var i = 0; i < casesInit.length; i ++)         //create a div for every error case and put the case description in it
+  {
+    divs[i] = document.createElement('div');    
+    document.body.appendChild(divs[i]);
+    divs[i].innerHTML = casesInit[i].text;
+  }
+
+
+}
+initilize();
+
+function checkCode()                              //every time something is typed
+{
+  var cases = validateCases(editor.getValue());   //get error cases
+
+  for (var j = 0; j < cases.length; j ++)         //change color based on whether case is passed
+  {
+    if (cases[j].passed)
+    {
+     divs[j].style.color = "green";
+   }else{
+     divs[j].style.color = "red";
+    }
+  } 
+}
+
+function printErrors(error)                     //ever time an annotation changes
+{
+  var errorText = "";
+  for (var key in error){
+    if (error.hasOwnProperty(key))
+     {
+      errorText += "[" + (error[key].row + 1)  + " , " + (error[key].column + 1) + "] - \t" + error[key].text + "<br>";   //print it
+     }
+  }
+   document.getElementById("errors").innerHTML = errorText;  //let the user know if they have errors to fix
+   if (error.length > 0)
+   {
+    document.getElementById("fixerrors").innerHTML = "You have errors :(";
+    document.getElementById("fixerrors").style.color = "red";
+   }else{
+    document.getElementById("fixerrors").innerHTML = "Error free :)";
+    document.getElementById("fixerrors").style.color = "green";
+   }
+}
+</script>
+
+</body>
+</html>
