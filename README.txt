@@ -22,3 +22,5 @@ Ace is amazingly nice.  It made this project a lot easier.
 5.
 There’s no slowdown to user input. 
 
+By Adam Fisher
+
