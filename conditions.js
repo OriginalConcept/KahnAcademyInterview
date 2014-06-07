@@ -13,7 +13,7 @@ testCases.push(case0);
 var case1 = new TestCase('Write an if statement. Before the console.log statement, try typing: if (a == 1)')
 testCases.push(case1);
 
-var case2 = new TestCase('Do not use a while loop.  Do not even think about typing while.');
+var case2 = new TestCase('Do not use a while loop.  Not that there is any reason for it...');
 testCases.push(case2);
 
 
