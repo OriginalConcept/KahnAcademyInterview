@@ -10,10 +10,10 @@ var testCases = [];						//three example test cases
 var case0 = new TestCase('Declare a variable.  Try typing: var a = 1;');
 testCases.push(case0);
 
-var case1 = new TestCase('Write an if statement. Before the console.log statement, try typing: if (a == 1)')
+var case1 = new TestCase('Write an if statement. Before console.log, try typing: if (a == 1)')
 testCases.push(case1);
 
-var case2 = new TestCase('Do not use a while loop.  Not that there is any reason for it...');
+var case2 = new TestCase('Do not use a while loop.');
 testCases.push(case2);
 
 
