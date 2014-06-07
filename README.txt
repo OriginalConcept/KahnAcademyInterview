@@ -14,13 +14,14 @@ I chose to use Esprima on the basis of superior documentation and support.  Espr
 I could not test this program on Internet Explorer but everything is fully functional on Firefox, Chrome, and Safari.
 
 3.
-I could not fully figure out Esprima so I only use the tokenizer.  The documentation is woefully brief.  As a result, did not do test case 3.
-
+I could not fully figure out Esprima so I only use the tokenizer.  The documentation for Esprima is woefully brief.  As a result, did not do test case 3.  Given more time, I would add full functionality.
 4.
 Ace is amazingly nice.  It made this project a lot easier.
 
 5.
 There’s no slowdown to user input. 
+
+
 
 By Adam Fisher
 
