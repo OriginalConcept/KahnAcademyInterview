@@ -2,6 +2,8 @@ Hey!  Thanks for checking out my project.
 
 Here’s a little bit about it.
 
+editor.html contains the editor and conditions.js is holds the conditions to be checked.
+
 1. 
 Acorn.js vs Esprima:
 I chose to use Esprima on the basis of superior documentation and support.  Esprima has a speed comparison page (http://esprima.org/test/compare.html).  Esprima is around 50% slower than Acorn.js but the absolute difference should not be relevant.
