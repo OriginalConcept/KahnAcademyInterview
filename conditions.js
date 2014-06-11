@@ -7,15 +7,14 @@ function TestCase(text)					//TestCase class has text and passed parameters
 }
 
 var testCases = [];						//three example test cases
-var case0 = new TestCase('Declare a variable.  Try typing: var a = 1;');
+var case0 = new TestCase('Declare a variable.');
 testCases.push(case0);
 
-var case1 = new TestCase('Write an if statement. Before console.log, try typing: if (a == 1)');
+var case1 = new TestCase('Write an if statement.');
 testCases.push(case1);
 
 var case2 = new TestCase('Do not use a while loop.');
 testCases.push(case2);
-
 
 var case3 = new TestCase('Write a for loop inside an if statement.');
 testCases.push(case3);
