@@ -10,18 +10,24 @@ var testCases = [];						//three example test cases
 var case0 = new TestCase('Declare a variable.  Try typing: var a = 1;');
 testCases.push(case0);
 
-var case1 = new TestCase('Write an if statement. Before console.log, try typing: if (a == 1)')
+var case1 = new TestCase('Write an if statement. Before console.log, try typing: if (a == 1)');
 testCases.push(case1);
 
 var case2 = new TestCase('Do not use a while loop.');
 testCases.push(case2);
 
 
-function validateCases(input){
-	
-	var syntax = esprima.tokenize(input, { tolerant: true } );
+var case3 = new TestCase('Write a for loop inside an if statement.');
+testCases.push(case3);
 
+
+function validateCases(input){
+
+	var syntax = esprima.tokenize(input, { tolerant: true } );
+	
 	//These cases could be combined.  Seperate for clarity.  
+	//Could switch from tokenizer to syntax parser for these cases- there's a few differences between the two.
+	//The tokenizer accepts as soon as it sees the completed token, but the parser only accepts once the statement is complete.
 
 	//Test Case 0
 	testCases[0].passed = false;
@@ -52,9 +58,34 @@ function validateCases(input){
 		  testCases[2].passed = false;
 		}
 	}
-	
+
+	//using the parse function requires a try catch block.  
+	testCases[3].passed = false;
+	try
+	{
+		var parse = esprima.parse(input, {tolerant: true});
+		//var errors = parse.errors;
+		var bodyLength = parse.body.length;
+		for (var i = 0; i < bodyLength; i ++)
+		{
+			if (parse.body[i].type == "IfStatement")
+			{			
+				var consequentLength = parse.body[i].consequent.body.length;
+				
+				for (var j = 0; j < consequentLength; j++)
+				{
+					if (parse.body[i].consequent.body[j].type == "ForStatement")
+					{
+						testCases[3].passed = true;
+					}
+				}
+			}			
+		}
+	} catch(e)
+	{
+
+	}
 	return testCases;
 	
-	//return testCases;
 }
 

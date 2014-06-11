@@ -18,15 +18,18 @@ I was unsatisfied with the documentation for Esprima.  If I were to continue dev
 I could not test this program on Internet Explorer but everything is fully functional on Firefox, Chrome, and Safari.
 
 3.
-I could not fully figure out Esprima so I only use the tokenizer.  The documentation for Esprima is woefully brief.  As a result, did not do test case 3.  Given more time, I would add full functionality.
+I use the tokenizer for the first three tests and the syntax parser for the last one.  A tokenizer-test checks if a specific token, like an if statement, is present.  This means that they will be passed as soon as ‘if’ is written.  The syntax parser requires complete syntax for the case to pass.  For example, ‘if for’ will not pass the final test.  For the simpler tests, the tokenizer and syntax parser are interchangeable but the parser is required for more involved ones.   The documentation for Esprima is brief - I ended up looking at the page source of a couple pages on their website to figure some stuff out.
+
 4.
 Ace is amazingly nice.  It made this project a lot easier.
 
 5.
-There’s no slowdown to user input. 
+There’s no slowdown to user input.  This might be an issue for large pieces of code with involved tests.
 
 Known issues:
-Creating an open ended string as the first line of code will cause this to break.  It’s a problem with Ace.
+Creating an open ended string as the first line of code will cause this to break.  It’s a version problem with Ace.  I’ll look into this later.
+
+The code is currently very messy.  I’ll fix this later.
 
 
 By Adam Fisher
