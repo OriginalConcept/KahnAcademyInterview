@@ -70,9 +70,14 @@ function validateCases(input){
 			if (parse.body[i].type == "IfStatement")
 			{			
 				var consequentLength = parse.body[i].consequent.body.length;
-				
+				//console.log(consequentLength);
+				if (parse.body[i].consequent.type == "ForStatement")
+						testCases[3].passed = true;
+
 				for (var j = 0; j < consequentLength; j++)
 				{
+
+
 					if (parse.body[i].consequent.body[j].type == "ForStatement")
 					{
 						testCases[3].passed = true;
