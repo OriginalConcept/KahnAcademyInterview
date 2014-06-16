@@ -23,7 +23,7 @@
 </head>
 <body>
 
-<div id="editor">
+<div id="editor">  <!--The following text starts in the editor.-->
 //Created by Adam Fisher for Kahn Academy
 //Type something!
 
@@ -35,8 +35,8 @@ console.log("This writes something to the console.");
 <p id = "fixerrors"> </p>
 
 
-<script src="src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
+<script src="src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>  
+<script type="text/javascript">	//Setting up the Ace editor
 		var editor = ace.edit("editor");
 		editor.setTheme("ace/theme/monokai");
 		editor.getSession().setMode("ace/mode/javascript");
@@ -54,11 +54,9 @@ console.log("This writes something to the console.");
 
 
 <script src="esprima-master/esprima.js" type="text/javascript" charset="utf-8"></script>
-
 <script src = "conditions.js" type="text/javascript" charset="utf-8"></script>
 
-
-<script>
+<script  type="text/javascript">
 var divs = [];
 
 function initilize()                                  //on inititilization
@@ -85,9 +83,9 @@ function checkCode()                              //every time something is type
 	{
 		if (cases[j].passed)
 		{
-		 divs[j].style.color = "green";
-	 }else{
-		 divs[j].style.color = "red";
+			divs[j].style.color = "green";
+		 }else{
+			divs[j].style.color = "red";
 		}
 	} 
 }
@@ -113,6 +111,8 @@ function printErrors(error)                     //every time an annotation chang
 	 }
 }
 </script>
+
+
 
 </body>
 </html>

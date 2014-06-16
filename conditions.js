@@ -6,7 +6,7 @@ function TestCase(text)					//TestCase class has text and passed parameters
 	this.passed = false;
 }
 
-var testCases = [];						//three example test cases
+var testCases = [];						//example test cases
 var case0 = new TestCase('Declare a variable.');
 testCases.push(case0);
 
@@ -25,8 +25,9 @@ function validateCases(input){
 	var syntax = esprima.tokenize(input, { tolerant: true } );
 	
 	//These cases could be combined.  Seperate for clarity.  
-	//Could switch from tokenizer to syntax parser for these cases- there's a few differences between the two.
+	//There's an option to use either the tokenizer or the syntax parser for the first three cases- there's a few differences between the two.
 	//The tokenizer accepts as soon as it sees the completed token, but the parser only accepts once the statement is complete.
+	//It's easier to make caes for the tokenizer and it's faster.
 
 	//Test Case 0
 	testCases[0].passed = false;
@@ -77,7 +78,6 @@ function validateCases(input){
 				for (var j = 0; j < consequentLength; j++)
 				{
 
-
 					if (parse.body[i].consequent.body[j].type == "ForStatement")
 					{
 						testCases[3].passed = true;
@@ -87,7 +87,7 @@ function validateCases(input){
 		}
 	} catch(e)
 	{
-
+		console.log("Code cannnot be parsed due to errors.");
 	}
 	return testCases;
 	
